@@ -19,7 +19,8 @@ public class CharacterSpecificationProviderManager
                 .filter(p -> p.getKey().equals(key))
                 .findFirst()
                 .orElseThrow(
-                        () -> new RuntimeException("")
+                        () -> new RuntimeException("Can't provide specification "
+                        + "for key: " + key)
                 );
     }
 }

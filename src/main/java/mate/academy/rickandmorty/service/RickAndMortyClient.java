@@ -46,7 +46,8 @@ public class RickAndMortyClient {
                     getHttpResponse(httpRequest).body(),
                     RickAndMortyResponseDataDto.class);
         } catch (JsonProcessingException e) {
-            throw new ObjectMapperException("Failed to read httpResponse: ", e);
+            throw new ObjectMapperException("URL: " + httpRequest.uri()
+                    + " Failed to read httpResponse: ", e);
         }
     }
 
@@ -61,7 +62,9 @@ public class RickAndMortyClient {
             }
             return response;
         } catch (IOException | InterruptedException e) {
-            throw new ApiException("Cannot get all characters from API: ", e);
+            throw new ApiException("URL: "
+                    + httpRequest.uri()
+                    + " Cannot get all characters from API: ", e);
         }
     }
 }

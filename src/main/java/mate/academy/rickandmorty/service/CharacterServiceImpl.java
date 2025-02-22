@@ -32,7 +32,7 @@ public class CharacterServiceImpl implements CharacterService {
 
     @Override
     public CharacterDto getRandomCharacter() {
-        long randomId = new Random().nextLong(characterRepository.count() + 1);
+        long randomId = new Random().nextInt((int) (characterRepository.count() + 1));
         Character randomCharacter =
                 characterRepository.findById(randomId)
                         .orElseThrow(

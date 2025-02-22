@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @RequiredArgsConstructor
 @SpringBootApplication
 public class Application implements CommandLineRunner {
-    private final CharacterService charactersService;
+    private final CharacterService characterService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -17,6 +17,6 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        charactersService.fetchToDb();
+        characterService.fetchToDb();
     }
 }
